@@ -1,50 +1,28 @@
-# Angular2-d3-parking:
+# PROJECTTest
 
-The project is use the frmework is angular2 and the service is mean.js . D3 often be used in the component and the  the version
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
-of d3 is v4 in angular2.The is const of three components includes App.conponent 、Maps component 、Map1 component and the 
+## Development server
 
-service and the modules. The Map1 component is for the 2D map and the Map conponent is server for the parking lot.The App 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-component is used for the contant others component.
+## Code scaffolding
 
-# Note:
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|module`.
 
-The CLI is now in 1.0. If you are updating from a beta or RC version, check out our 1.0 Update Guide.
+## Build
 
-If you wish to collaborate, check out our issue list.
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
 
-Before submitting new issues, have a look at issues marked with the type: faq label.
+## Running unit tests
 
-# The external repository add of json in this project 
- 
- "bootstrap": "latest"     "leaflet-d3-svg-overlay": "^2.2.0    "leaflet.pm": "^0.13.0"   "font-awesome": "latest"
-  
-# Prerequisites:
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-  Both the CLI and generated project have dependencies that require Node 6.9.0 or higher, together with NPM 3 or higher.
-  
-# Installation:
-  
-  cloen the project:
-  
-    $ git clone https://github.com/Huang9495/angular2-d3-parking angular2-d3-parking 
-    
-  the package of the environment:
-  
-    $ cd angular2-d3-parking 
-    
-    $ npm install
- 
-# Usage:
-    $ ng help
+## Running end-to-end tests
 
-# Running Your Application:
+Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Before running the tests make sure you are serving the app via `ng serve`.
 
-    $ ng server
-    
-   Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
+## Further help
 
-You can configure the default HTTP host and port used by the development server with two command-line options :
-
-ng serve --host 0.0.0.0 --port 4201
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).

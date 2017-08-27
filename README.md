@@ -27,6 +27,7 @@ Before submitting new issues, have a look at issues marked with the type: faq la
 # Installation:
   
   cloen the project:
+  
     $ git clone https://github.com/Huang9495/angular2-d3-parking angular2-d3-parking 
     
   the package of the environment:
@@ -36,11 +37,11 @@ Before submitting new issues, have a look at issues marked with the type: faq la
     $ npm install
  
 # Usage:
-   $ ng help
+    $ ng help
 
 # Running Your Application:
 
-   $ ng server
+    $ ng server
     
    Navigate to http://localhost:4200/. The app will automatically reload if you change any of the source files.
 

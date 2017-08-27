@@ -18,10 +18,10 @@ Before submitting new issues, have a look at issues marked with the type: faq la
 
 # The external repository add of json in this project 
  
- "bootstrap": "latest",    
-  "leaflet-d3-svg-overlay": "^2.2.0",
-  "leaflet.pm": "^0.13.0",
-  "font-awesome": "latest";
+ "bootstrap": "latest"  
+ "leaflet-d3-svg-overlay": "^2.2.0"
+ "leaflet.pm": "^0.13.0"
+ "font-awesome": "latest"
   
 # Prerequisites:
 

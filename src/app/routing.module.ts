@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
 //将DatasComponent设置为初始页面
 
 const routes: Routes = [
-  { path: '', component: HomesComponent },
+  { path: '', component: DatasComponent,
+},
 ];
 
 @NgModule({

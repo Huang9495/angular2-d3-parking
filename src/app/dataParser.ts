@@ -1,23 +1,30 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {MomentModule} from 'angular2-moment/moment.module';
+
+import * as moment from 'moment';
+
 
 export class DataParser {
 
+  dayStats = new Array(1441);
+  parkingViolations = 0;
+  parkingEvents = 0;
 
 //判断该车位是那种情况，然后在那种情况里面增加1，即增加停车点的统计
   addParkingSpotToStats(parkingTimeArray) {
-    let bayStatus;
-//    this.dayStats = new Array(1441);
-//    this.parkingViolations = 0;
-//    this.parkingEvents = 0;
+    var bayStatus;
+    var self = this;
+
+
     for (var i = 0; i < parkingTimeArray.length; i++) {
       
       switch (parkingTimeArray[i]) {
         case 0:
         //当判断停车点为超出监控范围
-          bayStatus = 'parkingoMonitoring';
+          bayStatus = 'parkingNoMonitoring';
           break;
         case 1:
         //当判断该停车点为空闲
@@ -34,9 +41,11 @@ export class DataParser {
         case 4:
         //当判断该停车是合法的
           bayStatus = 'parkingInViolation';
-          break;   
+          break;
       }
+      this.dayStats[i][bayStatus] += 1;
     }
+//    console.log(this.dayStats[i])
   }
 
 
@@ -45,11 +54,21 @@ export class DataParser {
     var date = 20140101;
     var dataDate = 20140101;
 
-    var processedData = new Array(1440);
+    var processedData = new Array(1441);
 
     var i,j;
     var start,end;
     var signLookup = {};
+    var dayStats = new Array(1441);
+
+    for (i = 0; i < this.dayStats.length; i++) {
+        this.dayStats[i] = {  parkingEmpty:0, parkingTaken:0, parkingWillViolate:0, parkingInViolation:0, parkingNoMonitoring:0 };
+        this.dayStats[i].date = moment(currentDate).add(i, 'minutes').toDate();
+    }
+
+
+
+
 
     //Loop through add signPlate times, this is when monitoring is happening
     for (i = 0; i < feature.properties.signPlates.length; i++) {
@@ -72,7 +91,7 @@ export class DataParser {
     for (i = 0; i < feature.properties.sensor.length; i++) {
 
       //Add to total park events this day
-      //this.parkingEvents += 1;
+      this.parkingEvents += 1;
 
       //Performance Change
       //Quicker to pull out hour and times by 60 and then add minute then to use moment
@@ -94,7 +113,7 @@ export class DataParser {
         }
 
         //Add to total violations this day
-        //this.parkingViolations += 1;
+        this.parkingViolations += 1;
 
 
       } else {
@@ -113,7 +132,7 @@ export class DataParser {
           processedData[j] = 0;
       }
     }
-
+//    console.log(processedData);
     this.addParkingSpotToStats(processedData);
 
     return processedData;
@@ -121,7 +140,7 @@ export class DataParser {
 
 
   parse(collection){
-
+        //数据解析
         collection = JSON.parse(collection._body);
 
         for (var i = 0; i < collection.features.length; i++) {
@@ -135,9 +154,16 @@ export class DataParser {
             var events = feature.properties.sensor;
 
             var parkingTimeArray = this.parkingSpotTimeArray(collection.features[i],20140101);
+            var stats = this.addParkingSpotToStats(parkingTimeArray);
             collection.features[i].properties.parkingData = parkingTimeArray;
+ //         console.log(stats);
         }  
 
+
+        collection.dayStats = this.dayStats;
+        collection.parkingViolations = this.parkingViolations;
+        collection.parkingEvents = this.parkingEvents;
+        console.log(collection.dayStats);
         return collection;
 
   }

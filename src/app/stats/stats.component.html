@@ -1,87 +1,56 @@
-<div class="stats-grid">
-		<div class="col-1-2">
-				<h4>Parking Events</h4>
-				<h4>
-					<span id="stats-total-events"><tr >{{parking.events}}</tr></span>
-				</h4>	
-		</div>
-
-		<div class="col-1-2">
-				<h4>Parking Violations</h4>
-				<h4>
-					<span id="stats-total-violations"><tr >{{parking.violations}}</tr></span>
-				</h4>
-
-		</div>
-
-		<div class="col-1-2">
-				<h4>Free</h4>
-				<h4>
-					<span id="stats-parking-empty"><tr >{{parking.free}}</tr></span>
-				</h4>
-		</div>
-
-		<div class="col-1-2">
-				<h4>Taken</h4>
-				<h4>
-					<span id="stats-parking-total-taken"><tr >{{parking.taken}}</tr></span>
-				</h4>
-		</div>
-
-		<div class=""><h4>Car Parks:</h4></div>
-
-		<div class="legend-item">
-		<h4><span><svg><rect><circle cx="6" cy="4" r="3" fill="#00ff00"></circle></rect></svg>
-			Free
-		</span></h4>
-		<h4><span class="stats" id="stats-parking-empty-2">
+<p-calendar [(ngModel)]="value"></p-calendar>
+<div class=".stats-grid">
+	<div class="col-1-2">
+		<h1>
+			Parking Events
+		</h1>
+		<div *ngIf="_collection">
+			<h4>
 				<tr >
-					{{parking.free}}
+					{{_collection.parkingEvents}}
 				</tr>
-		</span></h4>	
-		</div>
+			</h4>
+		</div>	
+	</div>
 
-		<div class="legend-item">
-		<h4><span><svg><rect><circle cx="6" cy="4" r="3" fill="#0000ff"></circle></rect></svg>
-		 	Taken (Punctual)
-		 </span></h4>
-		 <h4><span class="stats" id="stats-parking-will-leave">
+	<div class="col-1-2">
+		<h1>
+			Parking Violations
+		</h1>
+		<div *ngIf="_collection">
+			<h4>
 				<tr >
-					{{parking.punctual}}
+					{{_collection.parkingViolations}}
 				</tr>
-		 </span></h4>
+			</h4>
 		</div>
+	</div>
 
-		<div class="legend-item">
-		<h4><span><svg><rect><circle cx="6" cy="4" r="3" fill="#ffff00"></circle></rect></svg>
-			 Taken (Will Overstay)
-		</span></h4>
-		<h4><span class="stats" id="stats-parking-will-violation">
-				<tr >
-					{{parking.willoverstay}}
-				</tr>
-		</span></h4>
-		</div>
-
-		<div class="legend-item">
-		<h4><span><svg><rect><circle cx="6" cy="4" r="3" fill="#ff0000"></circle></rect></svg>
-			 Over Limit
-		</span></h4>
-		<h4><span class="stats" id="stats-parking-in-violation">
-				<tr >
-					{{parking.overlimit}}
-				</tr>
-		</span></h4>
-
-		</div>
-		<div class="legend-item">
-		<h4><span><svg><rect><circle cx="6" cy="4" r="3" fill="#FFF"></circle></rect></svg>
-		 	Unmonitored
-		</span></h4>
-		<h4><span class="stats" id="stats-no-monitoring">
-				<tr >
-					{{parking.unmonitored}}
-				</tr>
-		</span></h4>
-		</div>
 </div>
+
+
+<!-->
+<div class="app-Stats" style='flaot:right; width:330px; height:200px;'>
+
+    <div *ngIf="_collection">
+	    <div class="col-1-2">
+	    	<h1>
+				Parking Events
+			</h1>	
+	   		<h3>
+	   			<div>{{_collection.parkingEvents}}</div>
+	   		</h3>
+	   	</div>
+	   	<div class="col-1-2">
+			<h1>
+				Parking Violations
+			</h1>
+			<h3>
+				<div>{{_collection.parkingViolations}}</div>
+
+			</h3>
+
+		</div>
+	</div>
+</div>
+<!-->

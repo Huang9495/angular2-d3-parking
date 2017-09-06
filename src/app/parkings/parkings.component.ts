@@ -2,9 +2,9 @@ import { Component, OnInit, Inject} from '@angular/core';
 import { Http } from '@angular/http';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
-import { ParkingService } from '../services/parking.service';
+//import { ParkingService } from '../services/parking.service';
 import { ToastComponent } from '../shared/toast/toast.component';
-
+import { MapService } from '../services/map.service';
 
 @Component({
   selector: 'app-parkings',
@@ -15,25 +15,30 @@ import { ToastComponent } from '../shared/toast/toast.component';
 
 
 export class ParkingsComponent implements OnInit {
-  
+  dataFileName = '20140101.json';
+  _collection;
+
+  /*
   parking = {
 
-     events :1000,
-     violations :1000,
-     free :1000,
-     taken :1000,
-     punctual :500,
-     willoverstay :200,
-     overlimit :300,
-     unmonitored :400,
+     events,
+     violations ,
+     free ,
+     taken,
+     punctual,
+     willoverstay,
+     overlimit,
+     unmonitored,
   };
+  */
   parkings = [];
   
   isLoading = true;
   isEditing = false;
   //sendDataForm: FormGroup;
   constructor(
-              private parkingService:  ParkingService,
+              private mapService:  MapService,
+              //private parkingService:  ParkingService,
               private formBuilder: FormBuilder,
               private http: Http,
               public toast: ToastComponent) {}
@@ -41,8 +46,26 @@ export class ParkingsComponent implements OnInit {
 //定义初始化函数
   ngOnInit() {
   //改服务器下的获取数据的方法
-    this.getParkings();
-  }  
+//    this.getParkings();
+      this.getMaps(this.dataFileName); 
+  }
+
+
+
+  getMaps(dataFileName) {
+      var self = this;
+      this.mapService.getMaps3(dataFileName).subscribe(
+            collection => {
+              console.log('ddff');
+              console.log(collection);
+              console.log( collection.parkingEvents);
+              self._collection = collection;
+            }
+            
+      )
+  }
+
+/*  
   getParkings() {
 
     this.parkingService.getParkings().subscribe(
@@ -52,4 +75,9 @@ export class ParkingsComponent implements OnInit {
       () => this.isLoading = false,
     );
   }
+*/
+
+
+
+
 }

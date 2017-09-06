@@ -5,11 +5,11 @@
 			Parking Events
 		</h1>
 		<h4>
-		<span id="stats-total-events">
+
 			<tr >
-				{{parking.events}}
+				{{_collection.parkingEvents}}
 			</tr>
-		</span>
+
 		</h4>	
 	</div>
 
@@ -18,100 +18,10 @@
 		Parking Violations
 		</h1>
 		<h4>
-		<span id="stats-total-violations">
+
 			<tr >
-				{{parking.violations}}
+				{{_collection.parkingViolations}}
 			</tr>
-		</span>
 		</h4>
-
-	</div>
-
-	<div class="col-1-2">
-		<h1>
-			Free
-		</h1>
-		<h4>
-		<span id="stats-parking-empty">
-			<tr >
-				{{parking.free}}
-			</tr>
-		</span>
-		</h4>
-	</div>
-
-	<div class="col-1-2">
-		<h1>
-			Taken
-		</h1>
-		<h4>
-		<span id="stats-parking-total-taken">
-			<tr >
-				{{parking.taken}}
-			</tr>
-		</span>
-		</h4>
-
-	</div>
-
-	<div class="">
-		<h1>
-		Car Parks:
-		</h1>
-	</div>
-
-	<div class="legend-item">
-	<h1><span><svg><rect><circle cx="6" cy="4" r="3" fill="#00ff00"></circle></rect></svg>
-		Free
-	</span></h1>
-	<h4><span class="stats" id="stats-parking-empty-2">
-			<tr >
-				{{parking.free}}
-			</tr>
-	</span></h4>	
-	</div>
-
-	<div class="legend-item">
-	<h1><span><svg><rect><circle cx="6" cy="4" r="3" fill="#0000ff"></circle></rect></svg>
-	 	Taken (Punctual)
-	 </span></h1>
-	 <h4><span class="stats" id="stats-parking-will-leave">
-			<tr >
-				{{parking.punctual}}
-			</tr>
-	 </span></h4>
-	</div>
-
-	<div class="legend-item">
-	<h1><span><svg><rect><circle cx="6" cy="4" r="3" fill="#ffff00"></circle></rect></svg>
-		 Taken (Will Overstay)
-	</span></h1>
-	<h4><span class="stats" id="stats-parking-will-violation">
-			<tr >
-				{{parking.willoverstay}}
-			</tr>
-	</span></h4>
-	</div>
-
-	<div class="legend-item">
-	<h1><span><svg><rect><circle cx="6" cy="4" r="3" fill="#ff0000"></circle></rect></svg>
-		 Over Limit
-	</span></h1>
-	<h4><span class="stats" id="stats-parking-in-violation">
-			<tr >
-				{{parking.overlimit}}
-			</tr>
-	</span></h4>
-	
-	</div>
-	<div class="legend-item">
-	<h1><span><svg><rect><circle cx="6" cy="4" r="3" fill="#FFF"></circle></rect></svg>
-	 	Unmonitored
-	</span></h1>
-	<h4><span class="stats" id="stats-no-monitoring">
-			<tr >
-				{{parking.unmonitored}}
-			</tr>
-	</span></h4>
-	</div>
   </div>
+

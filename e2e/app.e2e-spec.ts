@@ -10,5 +10,7 @@ describe('project-test App', () => {
   it('should display welcome message', () => {
     page.navigateTo();
     expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getNavbarElement(1)).toEqual('Login');
+    expect(page.getNavbarElement(1)).toEqual('Login');
   });
 });

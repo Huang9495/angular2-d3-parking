@@ -1,34 +1,34 @@
 
 .parking-taken, .parkingTaken {
-  fill: #0000ff;
+  fill:   #ff0000;
 }
 
 .parking-offence {
-  fill: #ff0000;
+  fill: #ffff00;
 
 }
 
 .parking-empty, .parkingEmpty {
-  fill: #00ff00;
+  fill:  #000000;
 }
 
 .parking-no-monitoring, .parkingNoMonitoring {
-  fill: #FF00FF;
+  fill:   #00ff00;
 }
 
 .parking-in-violation, .parkingInViolation {
-  fill: #ff0000;
+  fill: #ff00bf;
 }
 
 .parking-will-violate, .parkingWillViolate {
-  fill: #ffff00;
+  fill: #0000ff;
 }
 
 svg {
   position: absolute;
   height: 100%;
   width: 100%;
-  z-index: 1000;
+  z-index: 600;
 }
 /*页面下面表格的样式*/
 
@@ -176,7 +176,8 @@ color: #999;
 .loading {
 
 
-  z-index: 2000;
+  z-index: 1
+;
 
   opacity: .8;
   background: #000;
